@@ -35,7 +35,7 @@ class Util():
 
     def read_file(self, file_path: str) -> dict:
         # Open the file for reading
-        with open(file_path, 'r') as file:
+        with open(file_path, encoding='utf-8') as file:
             # Load the JSON data from the file
             data = json.load(file)
             return data
