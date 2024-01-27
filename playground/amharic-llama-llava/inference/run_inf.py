@@ -48,7 +48,7 @@ def main(
     torch.manual_seed(seed)
     
     MAIN_PATH = '/model/Llama-2-7b-hf'
-    peft_model = '/path/to/checkpoint'
+    peft_model = '/model/llama-2-amharic-3784m'
     model_name = MAIN_PATH
     
     model = load_model(model_name, quantization)
