@@ -13,6 +13,7 @@ import json
 from typing import List
 
 from transformers import LlamaTokenizer, LlamaForCausalLM
+from safety_utils import get_safety_checker
 from model_utils import load_model, load_peft_model
 
 BASE_PROMPT = """Below is an interaction between a human and an AI fluent in English and Amharic, providing reliable and informative answers.
@@ -47,10 +48,10 @@ def main(
     torch.cuda.manual_seed(seed)
     torch.manual_seed(seed)
     
-    MAIN_PATH = '/model/Llama-2-7b-hf'
-    peft_model = '/model/llama-2-amharic-3784m'
+    MAIN_PATH = '/path/to/llama2'
+    peft_model = '/path/to/checkpoint'
     model_name = MAIN_PATH
-    quantization = True
+
     model = load_model(model_name, quantization)
 
     tokenizer = LlamaTokenizer.from_pretrained(model_name)
