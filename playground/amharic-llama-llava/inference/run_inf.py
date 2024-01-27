@@ -50,7 +50,7 @@ def main(
     MAIN_PATH = '/model/Llama-2-7b-hf'
     peft_model = '/model/llama-2-amharic-3784m'
     model_name = MAIN_PATH
-    
+    quantization = True
     model = load_model(model_name, quantization)
 
     tokenizer = LlamaTokenizer.from_pretrained(model_name)
