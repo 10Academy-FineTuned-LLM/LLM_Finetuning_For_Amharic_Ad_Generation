@@ -1,0 +1,54 @@
+from langchain_community.document_loaders import DirectoryLoader
+from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain.schema import Document
+from langchain_openai import OpenAIEmbeddings
+from langchain.vectorstores.chroma import Chroma
+import os
+import shutil
+from dotenv import load_dotenv
+load_dotenv()
+
+
+OPENAI_API_KEY = os.environ.get('OPENAI_API_KEY')
+
+data_path = './data/'
+CHROMA_PATH = './chromadb/'
+
+
+
+def load_documents(data_path):
+    loader = DirectoryLoader(data_path)
+    documents = loader.load()
+    return documents
+
+def split_text(documents:list[Document]):
+    text_spliter = RecursiveCharacterTextSplitter(
+        chunk_size=1000,
+        chunk_overlap=500,
+        length_function=len,
+        add_start_index = True
+    )
+    chunk = text_spliter.split_documents(documents)
+    return chunk
+
+def save_chunks_to_chroma(chunks:list[Document]):
+    #Clear the database first
+    if os.path.exists(CHROMA_PATH):
+        shutil.rmtree(CHROMA_PATH)
+
+    db = Chroma.from_documents(chunks, OpenAIEmbeddings(),\
+                               persist_directory=CHROMA_PATH)
+    db.persist()
+
+def generate_data_store():
+    documents = load_documents(data_path)
+    chunks = split_text(documents)
+    print(chunks[1])
+    save_chunks_to_chroma(chunks)  
+
+def main():
+    generate_data_store()      
+
+
+if __name__ == "__main__":
+    main()    
