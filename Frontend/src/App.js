@@ -11,7 +11,7 @@ function App() {
   };
   const handleSubmit = async () => {
     try {
-      const response = await fetch('YOUR_API_ENDPOINT', {
+      const response = await fetch('API_END_POINT', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -30,7 +30,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <p className='title'>
-          LLM AMHARIC AD GENERATOR
+           AMHARIC AD GENERATOR: 
         </p>
         <div className="input">
           <input value = {inputValue} onChange={handleInputChange}/>

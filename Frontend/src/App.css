@@ -2,10 +2,6 @@
   text-align:left;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -14,25 +10,35 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #11409e;
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  flex-direction:row;
+  align-items:start;
+  justify-content:row;
   font-size: calc(10px + 2vmin);
   color: white;
 }
 .title {
-  margin-top: 1rem;
+  padding-top: 150px;
+  padding-left: 20px;
 
 }
 
-.input {
-  color: #61dafb;
+.input{
+  padding-top: 170px;
+  padding-left: 20px;
+height: 6xs     
+0px;
+}
+
+.input>input {
+  color: #020809;
+  width: 500px;
 }
 .button{
-  margin-bottom: 1rem;
+  padding-top: 170px;
+  padding-left: 20px;
 }
 @keyframes App-logo-spin {
   from {
