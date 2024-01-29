@@ -1,4 +1,5 @@
 RAG/chromadb
+RAG/data
 data
 venv
 .env
