@@ -1,5 +1,9 @@
 RAG/chromadb
 RAG/data
+model/amharic-llama-llava/cache
+model/amharic-llama-llava/data
+model/amharic-llama-llava/dataset
+model/amharic-llama-llava/output
 data
 venv
 .env
