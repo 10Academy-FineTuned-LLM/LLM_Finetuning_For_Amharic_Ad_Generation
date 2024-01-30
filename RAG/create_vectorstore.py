@@ -13,7 +13,7 @@ import sys
 
 OPENAI_API_KEY = os.environ.get('OPENAI_API_KEY')
 
-sys.path.append('./')
+
 
 data_path = './data/'
 CHROMA_PATH = './chromadb'
