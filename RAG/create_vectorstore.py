@@ -13,10 +13,8 @@ import sys
 
 OPENAI_API_KEY = os.environ.get('OPENAI_API_KEY')
 
-
-
-data_path = './data/'
-CHROMA_PATH = './chromadb'
+data_path = '../data'
+CHROMA_PATH = '../chromadb'
 
 def load_documents(data_path):    
     try:
@@ -32,7 +30,7 @@ def split_text(documents:list[Document]):
     try:
         text_spliter = RecursiveCharacterTextSplitter(
             chunk_size=1000,
-            chunk_overlap=500,
+            chunk_overlap=100,
             length_function=len,
             add_start_index = True
         )
@@ -58,7 +56,7 @@ def generate_data_store():
     documents = load_documents(data_path)
     chunks = split_text(documents)    
     save_chunks_to_chroma(chunks) 
-    print("Vector store created successfuly!") 
+    #print("Vector store created successfuly!") 
 
 def main():
     generate_data_store()      
