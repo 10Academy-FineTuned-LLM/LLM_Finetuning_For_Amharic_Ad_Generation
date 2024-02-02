@@ -27,13 +27,13 @@ def print_trainable_parameters(model):
 
 
 def finetune():
-    LLAMA_DIR = '/path/to/llama/weights'
-    PT_DIR = '/path/to/pt/weights'
-    OUTPUT_DIR = "/path/to/output"
+    LLAMA_DIR = '/model/Llama-2-7b-hf'
+    PT_DIR = '/model/llama-2-amharic-3784m'
+    OUTPUT_DIR = "/home/abdulhamid_mussa/LLM_Finetuning_For_Amharic_Ad_Generation/output"
 
     tokenizer = LlamaTokenizer.from_pretrained(LLAMA_DIR)
 
-    model = LlamaForCausalLM.from_pretrained(LLAMA_DIR, load_in_8bit=False, device_map='auto', torch_dtype=torch.float16)
+    model = LlamaForCausalLM.from_pretrained(LLAMA_DIR, load_in_8bit=True, device_map='auto', torch_dtype=torch.float16)
 
 
     train_dataset = get_preprocessed_dataset(tokenizer, amharic_dataset, 'train')
@@ -103,8 +103,8 @@ def finetune():
 
     # Define training args
     training_args = TrainingArguments(
-        OUTPUT_DIR=OUTPUT_DIR,
-        overwrite_OUTPUT_DIR=True,
+        output_dir=OUTPUT_DIR,
+        overwrite_output_dir=True,
         bf16=True,  # Use BF16 if available
         # logging strategies
         logging_dir=f"{OUTPUT_DIR}/logs",
