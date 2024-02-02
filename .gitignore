@@ -1,10 +1,8 @@
-RAG/chromadb
-RAG/data
-model/amharic-llama-llava/cache
-model/amharic-llama-llava/data
-model/amharic-llama-llava/dataset
-model/amharic-llama-llava/output
+chromadb
+cache
 data
+dataset
+output
 venv
 .env
 .DS_Store
@@ -168,3 +166,28 @@ cython_debug/
 #  and can be added to the global gitignore or merged into this file.  For a more nuclear
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
+notebooks/results/adapter_config.json
+notebooks/results/adapter_model.bin
+notebooks/results/adapter_model.safetensors
+notebooks/results/all_results.json
+notebooks/results/README.md
+notebooks/results/train_results.json
+notebooks/results/trainer_state.json
+notebooks/results/checkpoint-1000/adapter_config.json
+notebooks/results/checkpoint-1000/adapter_model.bin
+notebooks/results/checkpoint-1000/optimizer.pt
+notebooks/results/checkpoint-1000/README.md
+notebooks/results/checkpoint-1000/rng_state.pth
+notebooks/results/checkpoint-1000/scheduler.pt
+notebooks/results/checkpoint-1000/trainer_state.json
+notebooks/results/checkpoint-1000/training_args.bin
+notebooks/results/checkpoint-500/adapter_config.json
+notebooks/results/checkpoint-500/adapter_model.bin
+notebooks/results/checkpoint-500/optimizer.pt
+notebooks/results/checkpoint-500/README.md
+notebooks/results/checkpoint-500/rng_state.pth
+notebooks/results/checkpoint-500/scheduler.pt
+notebooks/results/checkpoint-500/trainer_state.json
+notebooks/results/checkpoint-500/training_args.bin
+RAG/chromadb/chroma.sqlite3
+RAG/chromadb/chroma.sqlite3
