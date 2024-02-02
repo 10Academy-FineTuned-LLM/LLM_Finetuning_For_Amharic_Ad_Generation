@@ -4,6 +4,7 @@ model/amharic-llama-llava/cache
 model/amharic-llama-llava/data
 model/amharic-llama-llava/dataset
 model/amharic-llama-llava/output
+results
 data
 venv
 .env
