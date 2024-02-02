@@ -7,14 +7,14 @@ lora_trainable="q_proj,v_proj,k_proj,o_proj,gate_proj,down_proj,up_proj"
 modules_to_save="embed_tokens,lm_head"
 lora_dropout=0.05
 
-pretrained_model=/path/to/llama
-amharic_tokenizer_path=/path/to/amharic/tokenizer
-dataset_dir=/path/to/pt/amharic/dataset
-data_cache=/path/to/data/cache
+pretrained_model=/model/Llama-2-7b-hf
+amharic_tokenizer_path=/model/Llama-2-7b-hf
+dataset_dir=/home/abdulhamid_mussa/LLM_Finetuning_For_Amharic_Ad_Generation/data/cleaned
+data_cache=/home/abdulhamid_mussa/LLM_Finetuning_For_Amharic_Ad_Generation/cache
 per_device_train_batch_size=32
 per_device_eval_batch_size=1
 gradient_accumulation_steps=1
-output_dir=/path/to/output/dir
+output_dir=/home/abdulhamid_mussa/LLM_Finetuning_For_Amharic_Ad_Generation/output
 
 python pretrain.py \
     --model_name_or_path ${pretrained_model} \

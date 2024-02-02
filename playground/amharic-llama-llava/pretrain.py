@@ -460,6 +460,8 @@ def main():
         files = [file.name for file in path.glob("*.txt")]
         if training_args.debug_mode is True:
             files = [files[0]]
+        print("printing files")
+        print(files)    
         for idx, file in enumerate(files):
             data_file = os.path.join(path, file)
             filename = ''.join(file.split(".")[:-1])
@@ -665,7 +667,7 @@ def main():
         trainer.log_metrics("train", metrics)
         trainer.save_metrics("train", metrics)
         trainer.save_state()
-    model.save_pretrained(output_dir)
+    model.save_pretrained(training_args.output_dir)
     # Evaluation
     if training_args.do_eval:
         logger.info("*** Evaluate ***")

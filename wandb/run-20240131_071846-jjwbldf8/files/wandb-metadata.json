@@ -1,0 +1,88 @@
+{
+    "os": "Linux-5.15.0-1052-aws-x86_64-with-glibc2.31",
+    "python": "3.11.5",
+    "heartbeatAt": "2024-01-31T07:18:47.134845",
+    "startedAt": "2024-01-31T07:18:46.803481",
+    "docker": null,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "/home/abdulhamid_mussa/LLM_Finetuning_For_Amharic_Ad_Generation/playground/amharic-llama-llava/finetune.py",
+    "codePathLocal": "playground/amharic-llama-llava/finetune.py",
+    "codePath": "playground/amharic-llama-llava/finetune.py",
+    "git": {
+        "remote": "https://github.com/10Academy-FineTuned-LLM/LLM_Finetuning_For_Amharic_Ad_Generation.git",
+        "commit": "232cfac7e4083c3093eeefb89fd87a329b2e315b"
+    },
+    "email": "abdimussa87@gmail.com",
+    "root": "/home/abdulhamid_mussa/LLM_Finetuning_For_Amharic_Ad_Generation",
+    "host": "ip-172-31-57-88",
+    "username": "abdulhamid_mussa",
+    "executable": "/opt/miniconda/bin/python",
+    "cpu_count": 4,
+    "cpu_count_logical": 8,
+    "cpu_freq": {
+        "current": 2917.883875,
+        "min": 0.0,
+        "max": 0.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 2800.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3249.353,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2800.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2800.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3293.718,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2800.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2800.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2800.0,
+            "min": 0.0,
+            "max": 0.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 193.6498260498047,
+            "used": 166.38408660888672
+        }
+    },
+    "gpu": "NVIDIA A10G",
+    "gpu_count": 1,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA A10G",
+            "memory_total": 24146608128
+        }
+    ],
+    "memory": {
+        "total": 30.99468231201172
+    }
+}

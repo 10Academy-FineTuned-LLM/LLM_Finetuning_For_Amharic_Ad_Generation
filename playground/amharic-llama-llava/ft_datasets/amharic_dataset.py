@@ -6,7 +6,7 @@
 import copy
 import json
 import torch
-
+import pandas as pd
 
 from torch.utils.data import Dataset
 
@@ -14,7 +14,10 @@ from torch.utils.data import Dataset
 
 class InstructionDataset(Dataset):
     def __init__(self, dataset_config, tokenizer, partition="train", max_words=50):
-        self.ann = json.load(open(dataset_config.data_path))
+        self.ann = pd.read_csv(dataset_config.data_path)
+        # replacing NaN labels with Not Advertisement
+        self.ann['label'] =  self.ann['label'].fillna("Not Advertisement")
+
         if partition == "train":
             self.ann = self.ann
         else:
@@ -29,10 +32,11 @@ class InstructionDataset(Dataset):
         return len(self.ann)
 
     def __getitem__(self, index):
+        print(f'------------{index}----------')
         ann = self.ann[index]
 
-        prompt = ann["input"]
-        example = prompt + ann["output"]
+        prompt = ann["text"]
+        example = prompt + ann["label"]
  
         prompt = torch.tensor(
             self.tokenizer.encode(prompt), dtype=torch.int64
