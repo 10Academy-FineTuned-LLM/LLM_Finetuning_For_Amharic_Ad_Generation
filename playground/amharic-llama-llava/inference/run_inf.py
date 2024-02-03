@@ -48,7 +48,8 @@ def main(
     torch.manual_seed(seed)
     
     MAIN_PATH = '/model/Llama-2-7b-hf'
-    peft_model = '/model/llama-2-amharic-3784m'
+    # peft_model = '/model/llama-2-amharic-3784m'
+    peft_model = '/home/abdulhamid_mussa/LLM_Finetuning_For_Amharic_Ad_Generation/output'
     model_name = MAIN_PATH
     quantization = True
     model = load_model(model_name, quantization)
