@@ -1,4 +1,5 @@
 RAG/chromadb
+results
 data
 venv
 .env
