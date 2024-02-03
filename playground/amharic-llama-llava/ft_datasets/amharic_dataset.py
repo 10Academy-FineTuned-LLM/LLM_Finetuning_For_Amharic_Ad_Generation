@@ -77,8 +77,8 @@ class InstructionDataset(Dataset):
         :param sample: Sample dictionnary
         """
 
-        INTRO_BLURB = "Identify whether the given text is an advertisement or not advertisement from the given input. Make sure you respond only with advertisment or not advertisment. NOTHING ELSE"
-        INSTRUCTION_KEY = "### Input:"
+        INTRO_BLURB = "Generate an advertisement given a category"
+        INSTRUCTION_KEY = "###Category:"
         RESPONSE_KEY = "Response:"
         END_KEY = "### End"
 
