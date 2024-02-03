@@ -6,7 +6,7 @@
 import copy
 import json
 import torch
-import pandas as pd
+
 
 from torch.utils.data import Dataset
 
@@ -14,9 +14,7 @@ from torch.utils.data import Dataset
 
 class InstructionDataset(Dataset):
     def __init__(self, dataset_config, tokenizer, partition="train", max_words=50):
-        self.ann = pd.read_csv(dataset_config.data_path)
-        # replacing NaN labels with Not Advertisement
-        self.ann['label'] =  self.ann['label'].fillna("Not Advertisement")
+        self.ann = json.load(open(dataset_config.data_path))
 
         if partition == "train":
             self.ann = self.ann
@@ -32,11 +30,11 @@ class InstructionDataset(Dataset):
         return len(self.ann)
 
     def __getitem__(self, index):
-        print(f'------------{index}----------')
-        ann = self.ann[index]
 
-        prompt = ann["text"]
-        example = prompt + ann["label"]
+        ann = self.ann[index]
+        data = self.create_prompt_formats(ann)
+        prompt = data['prompt']
+        example = data['text'] # prompt + ann["label"]
  
         prompt = torch.tensor(
             self.tokenizer.encode(prompt), dtype=torch.int64
@@ -71,3 +69,32 @@ class InstructionDataset(Dataset):
             "labels": labels,
             "attention_mask":example_mask,
         }
+    
+    def create_prompt_formats(self,sample):
+        """
+        Format various fields of the sample ('text', 'label',)
+        Then concatenate them using two newline characters
+        :param sample: Sample dictionnary
+        """
+
+        INTRO_BLURB = "Identify whether the given text is an advertisement or not advertisement from the given input. Make sure you respond only with advertisment or not advertisment. NOTHING ELSE"
+        INSTRUCTION_KEY = "### Input:"
+        RESPONSE_KEY = "Response:"
+        END_KEY = "### End"
+
+        blurb = f"{INTRO_BLURB}"
+        text = f"{INSTRUCTION_KEY}\n{sample['input']}"
+        response = f"{RESPONSE_KEY}\n{sample['output']}"
+        end = f"{END_KEY}"
+
+        parts = [part for part in [blurb, text, response, end] if part]
+
+        formatted_prompt = "\n\n".join(parts)
+
+        sample["text"] = formatted_prompt
+        parts = [part for part in [blurb, text,] if part]
+        formatted_prompt = "\n\n".join(parts)
+
+        sample["prompt"]= formatted_prompt
+
+        return sample
